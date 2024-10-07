@@ -1,0 +1,15 @@
+* {
+  font-family: "poppins";
+}
+.login-panel {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 650px;
+  border-radius: 20px;
+  z-index: 99;
+  height: 350px;
+  background-color: white;
+  box-shadow: 3px 15px 25px rgba(0, 0, 0, 0.432);
+}

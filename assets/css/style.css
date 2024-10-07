@@ -1,0 +1,163 @@
+:root {
+  --primary-color: #0049e8;
+  --secondary-color: #23838;
+  --background-color: #e6eef5;
+  --font-global: "poppins";
+  --font-color: #667791;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: var(--font-global);
+  color: var(--font-color);
+}
+body {
+  background-color: var(--background-color);
+}
+#sidebar {
+  width: 264px;
+  height: 100vh;
+  background-color: var(--background-color);
+  transition: all 0.5s ease;
+  position: fixed;
+}
+#main {
+  margin-left: 264px;
+  padding: 0px 20px;
+  background-color: var(--background-color);
+  transition: all 0.5s ease;
+}
+
+#sidebar.s-active {
+  margin-left: -264px;
+}
+#main.m-active {
+  margin-left: 0px;
+}
+
+.wrapper {
+  height: 95vh;
+  border-radius: 20px;
+  background-color: white;
+  margin: 15px 10px;
+  padding: 10px 20px;
+}
+
+.tab {
+  padding: 10px 20px;
+  border-radius: 20px;
+  cursor: pointer;
+  transition: all 0.5s ease;
+}
+.tab > a {
+  color: var(--font-color);
+  text-decoration: none;
+}
+.tab:hover {
+  background-color: #e5ecfd;
+}
+
+.tab.t-active {
+  background-color: var(--primary-color);
+}
+
+.tab.t-active a,
+.tab.t-active i {
+  color: #fff;
+}
+header {
+  padding: 20px 0px;
+}
+header i {
+  padding: 8px;
+  cursor: pointer;
+  transition: all 0.5s ease;
+  border-radius: 20px;
+}
+
+header i:hover {
+  background-color: var(--primary-color);
+  color: white;
+}
+
+.icons {
+  width: 15px;
+}
+
+.profile img {
+  border-radius: 100%;
+  cursor: pointer;
+}
+
+/* Style Tab Profile */
+.tab-profile {
+  position: absolute;
+  top: 65px;
+  right: 20px;
+  z-index: 1;
+  height: 0;
+  overflow: hidden;
+  border-radius: 20px;
+  transition: all 0.5s ease;
+  background-color: white;
+  padding: 0;
+}
+.tab-profile.profile-active {
+  height: 100px;
+  padding: 10px 25px;
+}
+.tab-profile li:hover a {
+  color: #0049e8;
+}
+.tab-profile li {
+  list-style: none;
+  margin-bottom: 5px;
+}
+.tab-profile a {
+  text-decoration: none;
+  transition: all 0.4s ease;
+  color: var(--font-color);
+}
+
+.tab-dropdown {
+  margin-left: 35px;
+  height: 0;
+  overflow: hidden;
+  transition: all 0.5s ease;
+}
+.tab-dropdown li {
+  margin-top: 3px;
+}
+.tab-dropdown a {
+  text-decoration: none;
+  color: var(--font-color);
+}
+.tab-dropdown.ds-active {
+  height: auto;
+}
+/* Style Breadcrumbs */
+.breadcrumb-nav {
+  list-style: none;
+}
+
+.breadcrumb-nav li {
+  display: inline-block;
+}
+
+.breadcrumb-nav li::after {
+  content: " >  ";
+}
+
+.breadcrumb-nav li:last-child::after {
+  content: "";
+}
+.breadcrumb-nav a {
+  text-decoration: none;
+  color: var(--secondary-color);
+}
+
+.breadcrumb-nav a:hover {
+  text-decoration: underline;
+}
