@@ -112,7 +112,7 @@ if ($_GET['p'] == 'pbg-add') {
 		});
 		document.querySelectorAll('.tab')[2].classList.add('d-side-active', 't-active');
 		if (document.querySelectorAll('.tab')[2].classList.contains("d-side-active")) {
-			document.querySelectorAll('.tab-dropdown')[1].style.height = "60px";
+			document.querySelectorAll('.tab-dropdown')[1].style.height = "80px";
 		} else {
 			document.querySelectorAll('.tab-dropdown')[1].style.height = "0px";
 		}

@@ -50,6 +50,7 @@
 				<div class="tab-dropdown">
 					<ul>
 						<li><a href="?p=pbg-add">Data</a></li>
+						<li><a href="?p=pbg-add">Tambah</a></li>
 						<li><a href="#">Pencarian</a></li>
 					</ul>
 				</div>
