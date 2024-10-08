@@ -39,144 +39,64 @@
 	}
 	?>
 	<form action="" method="post" enctype="multipart/form-data">
-
-		<div class="columns">
-			<div class="column is-half">
-				<div class="field">
-					<label>Tanggal:</label>
-					<div class="control">
-						<input name="tanggal" type="date" class="input is-fullwidth">
-					</div>
-				</div>
-			</div>
-			<div class="column is-half">
-				<div class="field">
-					<label>Nomor Surat:</label>
-					<div class="control">
-						<input name="nosurat" type="text" class="input">
-					</div>
-				</div>
-			</div>
-		</div>
-
-		<div class="field">
-			<label>Jenis Bangunan:</label>
-			<div class="control">
-				<div class="select is-fullwidth">
-					<select name="jenis">
+		<div class="container">
+			<div class="row">
+				<div class="col-6">
+					<label class="form-label">Tanggal:</label>
+					<input name="tanggal" type="date" class="form-control">
+					<label class="form-label">Nomor Surat:</label>
+					<input name="nosurat" type="text" class="form-control">
+					<label class="form-label">Jenis Bangunan:</label>
+					<select name="jenis" class="form-select">
 						<?php foreach ($cmd->fetchAll("SELECT * FROM jenis WHERE jenis_kelompok='bangunan'") as $bangunan) : ?>
 							<option value="<?= $bangunan['jenis_id']; ?>"> <?= $bangunan['jenis_nama']; ?> </option>
 						<?php endforeach; ?>
 					</select>
+					<label class="form-label">Nama Pemilik:</label>
+					<input name="nama" type="text" class="form-control">
+					<label class="form-label">Alamat Bangunan:</label>
+					<textarea name="alamat" class="form-control"></textarea>
+					<label class="form-label">Penilik:</label>
+					<textarea name="penilik" class="form-control"></textarea>
 				</div>
-			</div>
-		</div>
-
-		<div class="field">
-			<label>Nama Pemilik:</label>
-			<div class="control">
-				<input name="nama" type="text" class="input">
-			</div>
-		</div>
-
-		<div class="field">
-			<label>Alamat Bangunan:</label>
-			<div class="control">
-				<textarea name="alamat" class="textarea"></textarea>
-			</div>
-		</div>
-
-		<div class="columns">
-			<div class="column is-half">
-				<div class="field">
-					<label>Penilik:</label>
-					<div class="control">
-						<textarea name="penilik" class="textarea"></textarea>
-					</div>
-				</div>
-			</div>
-			<div class="column is-half">
-				<div class="field">
+				<div class="col-6">
 					<label>Perihal:</label>
-					<div class="control">
-						<textarea name="perihal" class="textarea"></textarea>
-					</div>
-				</div>
-			</div>
-		</div>
-
-		<div class="columns">
-			<div class="column is-half">
-				<div class="field">
+					<textarea name="perihal" class="textarea"></textarea>
 					<label>Kecamatan:</label>
-					<div class="control">
-						<input name="kecamatan" type="text" class="input is-fullwidth">
-					</div>
-				</div>
-			</div>
-			<div class="column is-half">
-				<div class="field">
+					<input name="kecamatan" type="text" class="input is-fullwidth">
 					<label>Kelurahan/Desa:</label>
-					<div class="control">
-						<input name="desa" type="text" class="input">
-					</div>
-				</div>
-			</div>
-		</div>
-
-
-
-		<div class="field">
-			<label>Teguran Ke-:</label>
-			<div class="control">
-				<div class="select is-fullwidth">
+					<input name="desa" type="text" class="input">
 					<select name="teguran">
 						<?php for ($u = 1; $u <= 3; $u++) : ?>
 							<option value="Teguran <?= $u; ?>"> Teguran <?= $u; ?> </option>
 						<?php endfor; ?>
 					</select>
-				</div>
-			</div>
-		</div>
-
-		<div class="field">
-			<label>Keterangan:</label>
-			<div class="control">
-				<textarea name="keterangan" class="textarea"></textarea>
-			</div>
-		</div>
-
-		<div class="columns">
-			<div class="column is-half">
-				<div class="field">
+					<label>Keterangan:</label>
+					<textarea name="keterangan" class="textarea"></textarea>
 					<label>Tindak Lanjut:</label>
-					<div class="control">
-						<textarea name="tindakan" class="textarea"></textarea>
-					</div>
-				</div>
-			</div>
-			<div class="column is-half">
-				<div class="field">
+					<textarea name="tindakan" class="textarea"></textarea>
 					<label>Hasil Peninjauan:</label>
-					<div class="control">
-						<textarea name="hasil" class="textarea"></textarea>
-					</div>
+					<textarea name="hasil" class="textarea"></textarea>
 				</div>
 			</div>
-		</div>
 
-		<div class="field has-text-right">
-			<button name="tambah" class="button is-primary">
-				<span class="icon-text">
-					<span class="icon">
-						<i class="fa-regular  fa-paper-plane"></i>
+			<div class="field has-text-right">
+				<button name="tambah" class="button is-primary">
+					<span class="icon-text">
+						<span class="icon">
+							<i class="fa-regular fa-paper-plane"></i>
+						</span>
+						<span>Tambah</span>
 					</span>
-					<span>Tambah</span>
-				</span>
-			</button>
+				</button>
+			</div>
 		</div>
+</div>
+</div>
 
-	</form>
+
+
+</form>
 </div>
 
 <!-- Active Tab -->
