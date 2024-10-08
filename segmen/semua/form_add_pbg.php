@@ -108,14 +108,22 @@ if ($_GET['p'] == 'pbg-add') {
 ?>
 	<script>
 		document.querySelectorAll('.tab').forEach(tab => {
-			tab.classList.remove('t-active');
+			tab.classList.remove('t-active', 'd-side-active');
 		});
-		document.querySelectorAll('.tab')[2].classList.add('d-side-active', 't-active');
-		if (document.querySelectorAll('.tab')[2].classList.contains("d-side-active")) {
-			document.querySelectorAll('.tab-dropdown')[1].style.height = "80px";
-		} else {
-			document.querySelectorAll('.tab-dropdown')[1].style.height = "0px";
-		}
+
+		// Tentukan tab dan dropdown yang ingin diaktifkan
+		const activeTab = document.querySelectorAll('.tab')[2]; // Misal, tab ke-3
+		const activeDropdown = document.querySelectorAll('.tab-dropdown')[1]; // Misal, dropdown ke-2
+
+		// Tambahkan class aktif pada tab yang diinginkan
+		activeTab.classList.add('d-side-active', 't-active');
+
+		// Buat animasi transisi pada dropdown
+		activeDropdown.style.height = activeDropdown.scrollHeight + "px";
+		activeDropdown.addEventListener('transitionend', function handleTransitionEnd() {
+			activeDropdown.style.height = 'auto';
+			activeDropdown.removeEventListener('transitionend', handleTransitionEnd);
+		});
 	</script>
 <?php
 }

@@ -37,7 +37,7 @@
 					<i class="fa-solid fa-caret-down ms-auto"></i>
 				</li>
 				<div class="tab-dropdown">
-					<ul>
+					<ul class="tab-item-wrapper">
 						<li><a href="?p=supervision-data">Data</a></li>
 						<li><a href="#">Pencarian</a></li>
 					</ul>
@@ -48,9 +48,9 @@
 					<i class="fa-solid fa-caret-down ms-auto"></i>
 				</li>
 				<div class="tab-dropdown">
-					<ul>
-						<li><a href="?p=pbg-add">Data</a></li>
-						<li><a href="?p=pbg-add">Tambah</a></li>
+					<ul class="tab-item-wrapper">
+						<li><a href="?p=supervision-data">Data</a></li>
+						<li><a href="?p=supervision-add">Tambah</a></li>
 						<li><a href="#">Pencarian</a></li>
 					</ul>
 				</div>
@@ -60,7 +60,7 @@
 					<i class="fa-solid fa-caret-down ms-auto"></i>
 				</li>
 				<div class="tab-dropdown">
-					<ul>
+					<ul class="tab-item-wrapper">
 						<li><a href="#">Data</a></li>
 						<li><a href="#">Pencarian</a></li>
 					</ul>
@@ -75,7 +75,7 @@
 					<i class="fa-solid fa-caret-down ms-auto"></i>
 				</li>
 				<div class="tab-dropdown">
-					<ul>
+					<ul class="tab-item-wrapper">
 						<li><a href="#">Data</a></li>
 						<li><a href="#">Pencarian</a></li>
 					</ul>
@@ -183,8 +183,14 @@
 
 
 	<script src="../assets/js/bootstrap.bundle.min.js"></script>
-	<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-	<script src="../assets/js/chart.js"></script>
+	<?php
+	if ($_GET['p'] == 'beranda' || !$_GET['p']) {
+	?>
+		<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+		<script src="../assets/js/chart.js"></script>
+	<?php
+	}
+	?>
 	<script src="../assets/js/main.js"></script>
 </body>
 

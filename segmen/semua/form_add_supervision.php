@@ -3,8 +3,7 @@
 	<hr>
 
 	<?php
-	if( isset($_POST['tambah']))
-	{
+	if (isset($_POST['tambah'])) {
 		$tanggal = isset($_POST['tanggal']) ? $_POST['tanggal'] : 0;
 		$nosurat = isset($_POST['nosurat']) ? $_POST['nosurat'] : 1;
 		$jenis = isset($_POST['jenis']) ? $_POST['jenis'] : 1;
@@ -21,20 +20,19 @@
 
 		$notif = "Data Tidak sesuai!";
 
-		if( !empty($tanggal) && !empty($nosurat) && !empty($nama) && !empty($alamat)
-		 && !empty($kecamatan) && !empty($desa) )
-		{
+		if (
+			!empty($tanggal) && !empty($nosurat) && !empty($nama) && !empty($alamat)
+			&& !empty($kecamatan) && !empty($desa)
+		) {
 
-			if( $cmd->query("INSERT INTO pengawasan VALUES (
+			if ($cmd->query("INSERT INTO pengawasan VALUES (
 				NULL, '$tanggal', '$nosurat', '$jenis', '$nama', '$alamat', '$penilik',
 				'$perihal', '$kecamatan', '$desa',
 				'$teguran', '$keterangan', '$tindakan',
 				'$hasil'
-			)"))
-			{
+			)")) {
 				$notif = "<p>Data telah ditambahkan!</p>";
-			}
-			else $notif = "Data tidak dapat ditambahkan!";
+			} else $notif = "Data tidak dapat ditambahkan!";
 		}
 
 		echo $notif;
@@ -60,20 +58,20 @@
 				</div>
 			</div>
 		</div>
-		
+
 		<div class="field">
 			<label>Jenis Bangunan:</label>
 			<div class="control">
 				<div class="select is-fullwidth">
 					<select name="jenis">
-					<?php foreach($cmd->fetchAll("SELECT * FROM jenis WHERE jenis_kelompok='bangunan'") as $bangunan) :?>
-						<option value="<?= $bangunan['jenis_id']; ?>"> <?= $bangunan['jenis_nama']; ?> </option>
-					<?php endforeach; ?>
+						<?php foreach ($cmd->fetchAll("SELECT * FROM jenis WHERE jenis_kelompok='bangunan'") as $bangunan) : ?>
+							<option value="<?= $bangunan['jenis_id']; ?>"> <?= $bangunan['jenis_nama']; ?> </option>
+						<?php endforeach; ?>
 					</select>
 				</div>
 			</div>
 		</div>
-		
+
 		<div class="field">
 			<label>Nama Pemilik:</label>
 			<div class="control">
@@ -127,15 +125,15 @@
 		</div>
 
 
-		
+
 		<div class="field">
 			<label>Teguran Ke-:</label>
 			<div class="control">
 				<div class="select is-fullwidth">
 					<select name="teguran">
-					<?php for($u=1; $u <= 3; $u++) :?>
-						<option value="Teguran <?= $u; ?>"> Teguran <?= $u; ?> </option>
-					<?php endfor; ?>
+						<?php for ($u = 1; $u <= 3; $u++) : ?>
+							<option value="Teguran <?= $u; ?>"> Teguran <?= $u; ?> </option>
+						<?php endfor; ?>
 					</select>
 				</div>
 			</div>
@@ -170,13 +168,40 @@
 		<div class="field has-text-right">
 			<button name="tambah" class="button is-primary">
 				<span class="icon-text">
-				  <span class="icon">
-				    <i class="fa-regular fa-paper-plane"></i>
-				  </span>
-				  <span>Tambah</span>
+					<span class="icon">
+						<i class="fa-regular  fa-paper-plane"></i>
+					</span>
+					<span>Tambah</span>
 				</span>
 			</button>
 		</div>
 
 	</form>
 </div>
+
+<!-- Active Tab -->
+<?php
+if ($_GET['p'] == 'supervision-add') {
+?>
+	<script>
+		document.querySelectorAll('.tab').forEach(tab => {
+			tab.classList.remove('t-active', 'd-side-active');
+		});
+
+		// Tentukan tab dan dropdown yang ingin diaktifkan
+		const activeTab = document.querySelectorAll('.tab')[2]; // Misal, tab ke-3
+		const activeDropdown = document.querySelectorAll('.tab-dropdown')[1]; // Misal, dropdown ke-2
+
+		// Tambahkan class aktif pada tab yang diinginkan
+		activeTab.classList.add('d-side-active', 't-active');
+
+		// Buat animasi transisi pada dropdown
+		activeDropdown.style.height = activeDropdown.scrollHeight + "px";
+		activeDropdown.addEventListener('transitionend', function handleTransitionEnd() {
+			activeDropdown.style.height = 'auto';
+			activeDropdown.removeEventListener('transitionend', handleTransitionEnd);
+		});
+	</script>
+<?php
+}
+?>

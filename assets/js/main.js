@@ -18,12 +18,23 @@ ProfileBtn.addEventListener("click", function () {
 DropdownSidebarBtns.forEach((DropdownSidebarBtn, index) => {
   DropdownSidebarBtn.addEventListener("click", function () {
     DropdownSidebarBtn.classList.toggle("d-side-active");
-
     const dropdownElement = DropdownSidebarBtn.nextElementSibling;
 
     if (DropdownSidebarBtn.classList.contains("d-side-active")) {
-      dropdownElement.style.height = "60px";
+      dropdownElement.style.height = dropdownElement.scrollHeight + "px";
+      dropdownElement.addEventListener(
+        "transitionend",
+        function handleTransitionEnd() {
+          dropdownElement.style.height = "auto";
+          dropdownElement.removeEventListener(
+            "transitionend",
+            handleTransitionEnd
+          );
+        }
+      );
     } else {
+      dropdownElement.style.height = dropdownElement.scrollHeight + "px";
+      dropdownElement.offsetHeight;
       dropdownElement.style.height = "0px";
     }
   });
