@@ -1,8 +1,8 @@
 <!-- Breadcrumbs -->
 <div class="row">
-  <div class="col-12">
+  <div class="col-12 p-0">
     <div class="breadcrumbs">
-      <ul class="breadcrumb-nav">
+      <ul class="breadcrumb-nav ps-3">
         <li class="text-primary">Dashboard</li>
       </ul>
     </div>

@@ -1,8 +1,8 @@
 <!-- Breadcrumbs -->
 <div class="row">
-	<div class="col-12">
-		<div class="breadcrumbs">
-			<ul class="breadcrumb-nav">
+	<div class="col-12 p-0">
+		<div class="breadcrumbs ">
+			<ul class="breadcrumb-nav ps-3">
 				<li><a href="">Dashboard</a></li>
 				<li><a href="">Pengawasan</a></li>
 				<li class="text-primary">Tambah Data Pegawasan</li>
