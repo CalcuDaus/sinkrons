@@ -1,7 +1,19 @@
+<!-- Breadcrumbs -->
+<div class="row">
+	<div class="col-12">
+		<div class="breadcrumbs">
+			<ul class="breadcrumb-nav">
+				<li><a href="">Dashboard</a></li>
+				<li><a href="">Pengawasan</a></li>
+				<li class="text-primary">Tambah Data Pegawasan</li>
+			</ul>
+		</div>
+	</div>
+</div>
+<!-- End Breadcrumbs -->
 <div class="box">
 	<h3 class="title is-5">Tambah Data Pengawasan</h3>
 	<hr>
-
 	<?php
 	if (isset($_POST['tambah'])) {
 		$tanggal = isset($_POST['tanggal']) ? $_POST['tanggal'] : 0;
@@ -60,36 +72,36 @@
 					<textarea name="penilik" class="form-control"></textarea>
 				</div>
 				<div class="col-6">
-					<label>Perihal:</label>
-					<textarea name="perihal" class="textarea"></textarea>
-					<label>Kecamatan:</label>
-					<input name="kecamatan" type="text" class="input is-fullwidth">
-					<label>Kelurahan/Desa:</label>
-					<input name="desa" type="text" class="input">
-					<select name="teguran">
+					<label class="form-label" for="perihal">Perihal:</label>
+					<textarea name="perihal" class="form-control" id="perihal"></textarea>
+					<label class="form-label" for="kecamatan">Kecamatan:</label>
+					<input name="kecamatan" type="text" class="form-control">
+					<label class="form-label" for="desa">Kelurahan/Desa:</label>
+					<input name="desa" type="text" class="form-control" id="desa">
+					<label class="form-label">Teguran : </label>
+					<select name="teguran" class="form-select">
 						<?php for ($u = 1; $u <= 3; $u++) : ?>
 							<option value="Teguran <?= $u; ?>"> Teguran <?= $u; ?> </option>
 						<?php endfor; ?>
 					</select>
-					<label>Keterangan:</label>
-					<textarea name="keterangan" class="textarea"></textarea>
-					<label>Tindak Lanjut:</label>
-					<textarea name="tindakan" class="textarea"></textarea>
-					<label>Hasil Peninjauan:</label>
-					<textarea name="hasil" class="textarea"></textarea>
+					<label class="form-label" for="keterangan">Keterangan:</label>
+					<textarea name="keterangan" class="form-control" id="keterangan"></textarea>
+					<label class="form-label" for="tindakan">Tindak Lanjut:</label>
+					<textarea name="tindakan" class="form-control" id="tindakan"></textarea>
+					<label class="form-label" for="hasil">Hasil Peninjauan:</label>
+					<textarea name="hasil" class="form-control" id="hasil"></textarea>
+					<button name="tambah" class="btn btn-primary mt-2">
+						<span class="icon-text">
+							<span class="icon">
+								<i class="fa-regular text-white fa-paper-plane"></i>
+							</span>
+							<span class="text-white">Tambah</span>
+						</span>
+					</button>
 				</div>
 			</div>
 
-			<div class="field has-text-right">
-				<button name="tambah" class="button is-primary">
-					<span class="icon-text">
-						<span class="icon">
-							<i class="fa-regular fa-paper-plane"></i>
-						</span>
-						<span>Tambah</span>
-					</span>
-				</button>
-			</div>
+
 		</div>
 </div>
 </div>
@@ -107,14 +119,11 @@ if ($_GET['p'] == 'supervision-add') {
 		document.querySelectorAll('.tab').forEach(tab => {
 			tab.classList.remove('t-active', 'd-side-active');
 		});
-
 		// Tentukan tab dan dropdown yang ingin diaktifkan
 		const activeTab = document.querySelectorAll('.tab')[2]; // Misal, tab ke-3
 		const activeDropdown = document.querySelectorAll('.tab-dropdown')[1]; // Misal, dropdown ke-2
-
 		// Tambahkan class aktif pada tab yang diinginkan
 		activeTab.classList.add('d-side-active', 't-active');
-
 		// Buat animasi transisi pada dropdown
 		activeDropdown.style.height = activeDropdown.scrollHeight + "px";
 		activeDropdown.addEventListener('transitionend', function handleTransitionEnd() {

@@ -1,3 +1,16 @@
+<!-- Breadcrumbs -->
+<div class="row">
+	<div class="col-12">
+		<div class="breadcrumbs">
+			<ul class="breadcrumb-nav">
+				<li><a href="">Dashboard</a></li>
+				<li><a href="">Pengawasan</a></li>
+				<li class="text-primary">Data Pegawasan</li>
+			</ul>
+		</div>
+	</div>
+</div>
+<!-- End Breadcrumbs -->
 <div class="box">
 
 	<h3 class="title is-5">

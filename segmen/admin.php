@@ -51,7 +51,7 @@
 					<ul class="tab-item-wrapper">
 						<li><a href="?p=supervision-data">Data</a></li>
 						<li><a href="?p=supervision-add">Tambah</a></li>
-						<li><a href="#">Pencarian</a></li>
+						<li><a href="?p=supervision-search">Pencarian</a></li>
 					</ul>
 				</div>
 				<li class="tab tab-drop-btn mt-1 d-flex align-items-center">
@@ -134,6 +134,10 @@
 
 					case 'supervision-add':
 						require_once "semua/form_add_supervision.php";
+						break;
+
+					case 'supervision-search':
+						require_once "semua/form_search_supervision.php";
 						break;
 
 					case 'supervision-data':
