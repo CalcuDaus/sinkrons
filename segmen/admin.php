@@ -21,7 +21,7 @@
 <body>
 
 	<aside id="sidebar">
-		<div class="wrapper shadow">
+		<div class="wrapper shadow overflow-y-auto">
 			<div
 				class="logo mt-2 d-flex align-items-center justify-content-between">
 				<h5 class="m-0">Main Menu</h5>
@@ -37,9 +37,21 @@
 					<i class="fa-solid fa-caret-down ms-auto"></i>
 				</li>
 				<div class="tab-dropdown">
-					<ul class="tab-item-wrapper">
+					<ul class="tab-item-wrapper mb-0">
 						<li><a href="?p=supervision-data">Data</a></li>
 						<li><a href="#">Pencarian</a></li>
+					</ul>
+				</div>
+				<li class="tab tab-drop-btn mt-1 d-flex align-items-center">
+					<i class="fa-solid fa-users me-3 icons"></i>
+					<a href="#" class="m-0">PBG</a>
+					<i class="fa-solid fa-caret-down ms-auto"></i>
+				</li>
+				<div class="tab-dropdown">
+					<ul class="tab-item-wrapper mb-0">
+						<li><a href="?p=pbg-data">Data</a></li>
+						<li><a href="?p=pbg-add">Tambah</a></li>
+						<li><a href="?p=pbg-search">Pencarian</a></li>
 					</ul>
 				</div>
 				<li class="tab tab-drop-btn mt-1 d-flex align-items-center">
@@ -48,7 +60,7 @@
 					<i class="fa-solid fa-caret-down ms-auto"></i>
 				</li>
 				<div class="tab-dropdown">
-					<ul class="tab-item-wrapper">
+					<ul class="tab-item-wrapper mb-0">
 						<li><a href="?p=supervision-data">Data</a></li>
 						<li><a href="?p=supervision-add">Tambah</a></li>
 						<li><a href="?p=supervision-search">Pencarian</a></li>
@@ -60,14 +72,15 @@
 					<i class="fa-solid fa-caret-down ms-auto"></i>
 				</li>
 				<div class="tab-dropdown">
-					<ul class="tab-item-wrapper">
-						<li><a href="#">Data</a></li>
-						<li><a href="#">Pencarian</a></li>
+					<ul class="tab-item-wrapper mb-0">
+						<li><a href="?p=ref-bangunan">Bangunan</a></li>
+						<li><a href="?p=ref-konsultasi">Konsultasi</a></li>
+						<li><a href="?p=ref-status">Status</a></li>
 					</ul>
 				</div>
 				<li class="tab mt-1 d-flex align-items-center">
 					<i class="fa-solid fa-user me-3 icons"></i>
-					<a href="#" class="m-0">Pengguna</a>
+					<a href="?p=user-data" class="m-0">Pengguna</a>
 				</li>
 				<li class="tab tab-drop-btn mt-1 d-flex align-items-center">
 					<i class="fa-solid fa-file me-3 icons"></i>
@@ -130,6 +143,9 @@
 
 					case 'pbg-delete':
 						require_once "semua/delete_pbg.php";
+						break;
+					case 'pbg-search':
+						require_once "semua/form_search_pbg.php";
 						break;
 
 					case 'supervision-add':

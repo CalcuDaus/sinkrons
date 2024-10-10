@@ -4,15 +4,15 @@
         <div class="breadcrumbs">
             <ul class="breadcrumb-nav ps-3">
                 <li><a href="">Dashboard</a></li>
-                <li><a href="">Pengawasan</a></li>
-                <li class="text-primary">Pencarian Data Pegawasan</li>
+                <li><a href="">PBG</a></li>
+                <li class="text-primary">Pencarian Data PBG</li>
             </ul>
         </div>
     </div>
 </div>
 <!-- End Breadcrumbs -->
 <div class="box">
-    <h3 class="title is-5">Form Pencarian Data Pengawasan</h3>
+    <h3 class="title is-5">Form Pencarian Data PBG</h3>
     <hr>
 
     <form action="" method="post">
@@ -48,15 +48,15 @@
 
 <!-- Active Tab -->
 <?php
-if ($_GET['p'] == 'supervision-search') {
+if ($_GET['p'] == 'pbg-search') {
 ?>
     <script>
         document.querySelectorAll('.tab').forEach(tab => {
             tab.classList.remove('t-active', 'd-side-active');
         });
         // Tentukan tab active
-        const activeTab = document.querySelectorAll('.tab')[3];
-        const activeDropdown = document.querySelectorAll('.tab-dropdown')[2];
+        const activeTab = document.querySelectorAll('.tab')[2];
+        const activeDropdown = document.querySelectorAll('.tab-dropdown')[1];
         // Tambahkan class aktif pada tab 
         activeTab.classList.add('d-side-active', 't-active');
         // Buat animasi transisi pada dropdown

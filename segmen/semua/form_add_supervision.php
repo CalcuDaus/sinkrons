@@ -120,8 +120,8 @@ if ($_GET['p'] == 'supervision-add') {
 			tab.classList.remove('t-active', 'd-side-active');
 		});
 		// Tentukan tab dan dropdown yang ingin diaktifkan
-		const activeTab = document.querySelectorAll('.tab')[2]; // Misal, tab ke-3
-		const activeDropdown = document.querySelectorAll('.tab-dropdown')[1]; // Misal, dropdown ke-2
+		const activeTab = document.querySelectorAll('.tab')[3]; // Misal, tab ke-3
+		const activeDropdown = document.querySelectorAll('.tab-dropdown')[2]; // Misal, dropdown ke-2
 		// Tambahkan class aktif pada tab yang diinginkan
 		activeTab.classList.add('d-side-active', 't-active');
 		// Buat animasi transisi pada dropdown
