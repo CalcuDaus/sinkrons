@@ -44,7 +44,7 @@
                 </div>
             </div>
             <div class="row">
-                <div class="col">
+                <div class="col d-flex justify-content-end">
                     <button type="submit" class="btn btn-primary mt-2">Cari</button>
                 </div>
             </div>

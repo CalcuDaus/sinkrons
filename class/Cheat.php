@@ -16,18 +16,18 @@ class Cheat extends Databases
 		$next = $p_current < $p_halaman ? $p_current + 1 : 1;
 
 		$links = "
-		<nav class=\"pagination is-small\" role=\"navigation\" aria-label=\"pagination\">
-		  <a href=\"?p=$p&set=$prev\" class=\"pagination-previous\">Previous</a>
-		  <a href=\"?p=$p&set=$next\" class=\"pagination-next\">Next page</a>
-		  <ul class=\"pagination-list\">";
+		<nav class=\"pagination\" role=\"navigation\" aria-label=\"pagination\">
+		<li class=\"page-item\"><a href=\"?p=$p&set=$prev\" class=\"page-link\">Previous</a></li>
+		<ul class=\"pagination\">";
 
 		for ($i = 1; $i <= $p_halaman; $i++) {
 			$current = $p_current == $i ? "is-current" : "";
-			$links .= "<li><a href=\"?p=$p&set=$i\" class=\"pagination-link $current\">$i</a></li>";
+			$links .= "<li class=\"page-item\"><a href=\"?p=$p&set=$i\" class=\"page-link $current\">$i</a></li>";
 		}
 
 		$links .= "
 		  </ul>
+		  <li class=\"page-item\"><a href=\"?p=$p&set=$next\" class=\"page-link\">Next page</a></li>
 		</nav>";
 
 		return $hasil = [

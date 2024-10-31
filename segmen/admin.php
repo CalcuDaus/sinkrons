@@ -42,6 +42,7 @@ require_once __DIR__ . "/session.php";
 				<div class="tab-dropdown">
 					<ul class="tab-item-wrapper mb-0">
 						<li><a href="?p=krk-data">Data</a></li>
+						<li><a href="?p=krk-add">Tambah</a></li>
 						<li><a href="?p=krk-search">Pencarian</a></li>
 					</ul>
 				</div>

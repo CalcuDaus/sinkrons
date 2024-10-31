@@ -1,81 +1,112 @@
+<!-- Breadcrumbs -->
+<div class="row">
+	<div class="col-12 p-0">
+		<div class="breadcrumbs">
+			<ul class="breadcrumb-nav ps-3">
+				<li><a href="">Dashboard</a></li>
+				<li><a href="">PBG</a></li>
+				<li class="text-primary">Data PBG</li>
+			</ul>
+		</div>
+	</div>
+</div>
+<!-- End Breadcrumbs -->
 <div class="box">
-
-	<h3 class="title is-5">
-		Data PBG
-	</h3>
+	<div class="d-flex justify-content-between">
+		<h3 class="title is-5">
+			Data PBG
+		</h3>
+		<a href="?p=pbg-add" class="btn btn-primary">
+			<span class="icon-text">
+				<span class="icon">
+					<i class="fa-solid fa-plus text-white"></i>
+				</span>
+				<span class="text-white">Tambah</span>
+			</span>
+		</a>
+	</div>
 	<hr>
 
 	<?php
 	$jenis = [];
 	foreach ($cmd->fetchAll("SELECT * FROM jenis") as $j) {
-		array_push($jenis, $j['jenis_nama']);
+		$jenis[$j['jenis_id']] = $j['jenis_nama'];
 	}
 	?>
 
-	<div class="table-container">
-		<table class="table is-fullwidth">
-			<thead>
-				<tr>
-					<th>#</th>
-					<th>Jenis Konsultasi</th>
-					<th>No. Registrasi</th>
-					<th>Nama Pemilik</th>
-					<th>Alamat Pemilik</th>
-					<th>Telepon</th>
-					<th>Alamat Bangunan</th>
-					<th>Kecamatan</th>
-					<th>Kelurahan/Desa</th>
-					<th>Fungsi Bangunan</th>
-					<th>Tgl. Permohonan</th>
-					<th>Status</th>
-					<th>Aksi</th>
-				</tr>
-			</thead>
-
-			<tbody>
-				<?php
-				$no = 1;
-				foreach ($cmd->fetchAll("SELECT * FROM pbg") as $pbg):
-				?>
+	<div class="container card border-0 shadow rounded-4 p-3">
+		<div class="table-responsive">
+			<table class="table table-striped">
+				<thead>
 					<tr>
-						<td><?= $no++; ?></td>
-						<td><?= $jenis[$pbg['pbg_konsultasi'] - 1]; ?></td>
-						<td><?= $pbg['pbg_reg']; ?></td>
-						<td><?= $pbg['pbg_pemilik']; ?></td>
-						<td><?= $pbg['pbg_alamat']; ?></td>
-						<td><?= $pbg['pbg_telp']; ?></td>
-						<td><?= $pbg['pbg_bangunan']; ?></td>
-						<td><?= $pbg['pbg_kecamatan']; ?></td>
-						<td><?= $pbg['pbg_desa']; ?></td>
-						<td><?= $jenis[$pbg['pbg_fungsi'] - 1]; ?></td>
-						<td><?= $pbg['pbg_tanggal']; ?></td>
-						<td><?= $jenis[$pbg['pbg_status'] - 1]; ?></td>
-						<td>
-							<form action="" method="post" class="is-inline">
-								<input type="hidden" name="id" value="<?= $pbg['pbg_id']; ?>">
-								<button class="btn btn-warning">
-									<i class="fa-solid text-white fa-pen-to-square"></i>
-								</button>
-							</form>
-							<form action="?p=pbg-delete" method="post" class="is-inline">
-								<input type="hidden" name="id" value="<?= $pbg['pbg_id']; ?>">
-								<button class="btn btn-danger">
-									<i class="fa-solid text-white fa-trash"></i>
-								</button>
-							</form>
-						</td>
+						<th>#</th>
+						<th>Jenis Konsultasi</th>
+						<th>No. Registrasi</th>
+						<th>Nama Pemilik</th>
+						<th>Alamat Pemilik</th>
+						<th>Telepon</th>
+						<th>Alamat Bangunan</th>
+						<th>Kecamatan</th>
+						<th>Kelurahan/Desa</th>
+						<th>Fungsi Bangunan</th>
+						<th>Tgl. Permohonan</th>
+						<th>Status</th>
+						<th>Aksi</th>
 					</tr>
-				<?php endforeach;
-				if ($no == 1) echo "<tr><td colspan=\"13\">Tidak ada data</td></tr>";
-				?>
-			</tbody>
-		</table>
+				</thead>
+
+				<tbody>
+					<?php
+					$pages = $cheat->pages("SELECT * FROM pbg", "pbg-data");
+					foreach ($pages['data'] as $pbg):
+					?>
+						<tr>
+							<td><?= $pages['no']++; ?></td>
+							<td><?= $jenis[$pbg['pbg_konsultasi'] - 1]; ?></td>
+							<td><?= $pbg['pbg_reg']; ?></td>
+							<td><?= $pbg['pbg_pemilik']; ?></td>
+							<td><?= $pbg['pbg_alamat']; ?></td>
+							<td><?= $pbg['pbg_telp']; ?></td>
+							<td><?= $pbg['pbg_bangunan']; ?></td>
+							<td><?= $pbg['pbg_kecamatan']; ?></td>
+							<td><?= $pbg['pbg_desa']; ?></td>
+							<td><?= $jenis[$pbg['pbg_fungsi']]; ?></td>
+							<td><?= $pbg['pbg_tanggal']; ?></td>
+							<td><?= $jenis[$pbg['pbg_status']]; ?></td>
+							<td>
+								<div class="d-flex gap-2">
+									<form action="" method="post" class="is-inline">
+										<input type="hidden" name="id" value="<?= $pbg['pbg_id']; ?>">
+										<button class="btn btn-sm btn-warning">
+											<i class="fa-solid fa-pen-to-square text-white"></i>
+										</button>
+									</form>
+									<form action="?p=pbg-delete" method="post" class="is-inline">
+										<input type="hidden" name="id" value="<?= $pbg['pbg_id']; ?>">
+										<button class="btn btn-sm btn-danger">
+											<i class="fa-solid fa-trash text-white"></i>
+										</button>
+									</form>
+								</div>
+							</td>
+						</tr>
+					<?php endforeach;
+					if ($pages['count'] == 0) echo "<tr><td colspan=\"13\">Tidak ada data</td></tr>";
+					?>
+				</tbody>
+			</table>
+		</div>
+		<div class="container">
+			<div class="row">
+				<div class="col d-flex justify-content-end flex-column align-items-end mt-2">
+					<?= $pages['links']; ?>
+					<p><?= $pages['detail']; ?></p>
+				</div>
+			</div>
+		</div>
 	</div>
 
-	<?php
-	$cheat = new Cheat();
-	$cheat->pages();
-	?>
+
 </div>
 
 <!-- Active Tab -->

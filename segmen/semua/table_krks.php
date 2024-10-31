@@ -11,13 +11,11 @@
 	</div>
 </div>
 <!-- End Breadcrumbs -->
-<div class="box">
-	<h3 class="title is-5">
-		Data KRK
-	</h3>
-	<hr>
-
-	<div class="mb-2">
+<div class="box ">
+	<div class="d-flex justify-content-between">
+		<h3 class="title is-5">
+			Data KRK
+		</h3>
 		<a href="?p=krk-add" class="btn btn-primary">
 			<span class="icon-text">
 				<span class="icon">
@@ -27,7 +25,7 @@
 			</span>
 		</a>
 	</div>
-
+	<hr>
 	<?php
 	$jenis = [];
 	foreach ($cmd->fetchAll("SELECT * FROM jenis") as $j) {
@@ -109,10 +107,18 @@
 				</tbody>
 			</table>
 		</div>
+		<div class="container">
+			<div class="row">
+				<div class="col d-flex justify-content-end flex-column align-items-end mt-2">
+					<?= $pages['links']; ?>
+					<p><?= $pages['detail']; ?></p>
+				</div>
+			</div>
+		</div>
 	</div>
 
 
-	<?php $pages['links']; ?>
+
 </div>
 
 <!-- Active Tab -->

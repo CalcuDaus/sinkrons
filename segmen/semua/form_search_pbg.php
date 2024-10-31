@@ -16,29 +16,31 @@
     <hr>
 
     <form action="" method="post">
-        <div class="container">
+        <div class="container card border-0 shadow rounded-4 p-3">
             <div class="row">
-                <div class="col-3">
-                    <input type="date" class="form-control" placeholder="tanggal" name="tanggal">
-                    <input name="alamat" type="text" class="form-control mt-2" placeholder="Alamat Bangunan..">
-                    <input type="text" class="form-control mt-2" placeholder="Kelurahan/Desa.." name="desa">
+                <div class="col-md-6">
+                    <label>Jenis Konsultasi:</label>
+                    <select name="konsultasi" class="form-select">
+                        <?php foreach ($cmd->fetchAll("SELECT * FROM jenis WHERE jenis_kelompok='konsultasi'") as $konsultasi) : ?>
+                            <option value="<?= $konsultasi['jenis_id']; ?>"> <?= $konsultasi['jenis_nama']; ?> </option>
+                        <?php endforeach; ?>
+                    </select>
+                    <label>Nomor Registrasi:</label>
+                    <input name="registrasi" type="date" class="form-control">
+                    <label>Nama Pemilik:</label>
+                    <input name="pemilik" type="text" class="form-control">
                 </div>
-                <div class="col-3">
-                    <input type="text" class="form-control" placeholder="Nomor Surat.." name="nomor-surat">
-                    <input type="text" class="form-control mt-2" placeholder="Penilik.." name="penilik">
-                    <input type="number" class="form-control mt-2" placeholder="Teguran" name="teguran">
-                </div>
-                <div class="col-3">
-                    <input type="text" class="form-control" placeholder="Jenis Bangunan.." name="jenis-bangunan">
-                    <input type="text" class="form-control mt-2" placeholder="Perihal.." name="perihal">
-                </div>
-                <div class="col-3">
-                    <input type="text" class="form-control" placeholder="Nama Pemilik.." name="nama-pemilik">
-                    <input type="text" class="form-control mt-2" placeholder="Kecamatan.." name="kecamatan">
+                <div class="col-md-6">
+                    <label>No. Telepon:</label>
+                    <input name="telp" type="number" class="form-control">
+                    <label>Alamat Pemilik:</label>
+                    <textarea name="alamat" class="form-control"></textarea>
+                    <label>Alamat Bangunan:</label>
+                    <textarea name="bangunan" class="form-control"></textarea>
                 </div>
             </div>
             <div class="row">
-                <div class="col">
+                <div class="col d-flex justify-content-end">
                     <button type="submit" class="btn btn-primary mt-2">Cari</button>
                 </div>
             </div>
