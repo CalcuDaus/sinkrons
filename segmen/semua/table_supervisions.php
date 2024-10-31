@@ -49,11 +49,11 @@
 
 			<tbody>
 				<?php
-				$no = 1;
-				foreach ($cmd->fetchAll("SELECT * FROM pengawasan") as $awas):
+				$pages = $cheat->pages("SELECT * FROM pengawasan", "supervision-data");
+				foreach ($pages['data'] as $awas):
 				?>
 					<tr>
-						<td><?= $no++; ?></td>
+						<td><?= $pages['no']++; ?></td>
 						<td><?= $awas['awas_tanggal']; ?></td>
 						<td><?= $awas['awas_nosurat']; ?></td>
 						<td><?= $jenis[$awas['awas_jenis']]; ?></td>
@@ -85,16 +85,14 @@
 						</td>
 					</tr>
 				<?php endforeach;
-				if ($no == 1) echo "<tr><td colspan=\"15\">Tidak ada data</td></tr>";
+				if ($pages['no'] == 0) echo "<tr><td colspan=\"15\">Tidak ada data</td></tr>";
 				?>
 			</tbody>
 		</table>
 	</div>
 
-	<?php
-	$cheat = new Cheat();
-	$cheat->pages();
-	?>
+	<?= $pages['links']; ?>
+	<p><?= $pages['detail']; ?></p>
 </div>
 <!-- Active Tab -->
 <?php

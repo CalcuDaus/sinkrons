@@ -5,12 +5,11 @@ class Databases
 
 	function __construct()
 	{
-		require_once __DIR__ ."/../config.php";
+		require_once __DIR__ . "/../config.php";
 
 		$this->q = new mysqli(host_name, host_user, host_pass, host_data);
 
-		if( $this->q->connect_error)
-		{
+		if ($this->q->connect_error) {
 			echo "Database Error!";
 			exit();
 		}
@@ -38,12 +37,15 @@ class Databases
 		$fetch = $this->query($query);
 		$result = [];
 
-		while($all = $fetch->fetch_assoc())
-		{
+		while ($all = $fetch->fetch_assoc()) {
 			array_push($result, $all);
 		}
 
 		return $result;
 	}
+
+	function id()
+	{
+		return $this->q->insert_id;
+	}
 }
-?>

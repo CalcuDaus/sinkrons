@@ -1,18 +1,53 @@
 <?php
-class Cheat
+class Cheat extends Databases
 {
-	function pages()
+	function pages($query, $p, $batas = 5)
 	{
-		echo "
-		<nav class=\"d-flex align-items-center gap-3 mt-3 \" role=\"navigation\" aria-label=\"pagination\">
-		  <a href=\"#\" class=\"p-2 bg-primary text-decoration-none text-white rounded\">Previous</a>
-		  <ul class=\"d-flex list-unstyled gap-3 m-0\">
-		  		<li><a href=\"#\" class=\"p-2 bg-primary text-white text-decoration-none rounded is-current\">1</a></li>
-		  		<li><a href=\"#\" class=\"p-2 border border-primary border-2 text-primary text-decoration-none rounded\">2</a></li>
-		  		<li><a href=\"#\" class=\"p-2 border border-primary border-2 text-primary text-decoration-none rounded\">3</a></li>
+		$p_count = $this->count($query);
+		$p_batas = $batas;
+		$p_halaman = ceil($p_count / $p_batas);
+		$p_current = isset($_GET['set']) && !empty($_GET['set']) ? $_GET['set'] : 1;
+		$p_current = ($p_current > $p_halaman) ? 1 : $p_current;
+		$p_offset = ($p_current * $p_batas) - $p_batas;
+		$p_limit = "LIMIT $p_batas OFFSET $p_offset";
+		$no = $p_offset + 1;
+
+		$prev = $p_current > 1 ? $p_current - 1 : $p_halaman;
+		$next = $p_current < $p_halaman ? $p_current + 1 : 1;
+
+		$links = "
+		<nav class=\"pagination is-small\" role=\"navigation\" aria-label=\"pagination\">
+		  <a href=\"?p=$p&set=$prev\" class=\"pagination-previous\">Previous</a>
+		  <a href=\"?p=$p&set=$next\" class=\"pagination-next\">Next page</a>
+		  <ul class=\"pagination-list\">";
+
+		for ($i = 1; $i <= $p_halaman; $i++) {
+			$current = $p_current == $i ? "is-current" : "";
+			$links .= "<li><a href=\"?p=$p&set=$i\" class=\"pagination-link $current\">$i</a></li>";
+		}
+
+		$links .= "
 		  </ul>
-		  <a href=\"#\" class=\"p-2 bg-primary text-white rounded text-decoration-none\">Next page</a>
-		</nav>
-		";
+		</nav>";
+
+		return $hasil = [
+			'no' => ($p_offset + 1),
+			'count' => $p_count,
+			'data' => $this->fetchAll($query . " " . $p_limit),
+			'links' => $links,
+			'detail' => "Menampilkan " . count($this->fetchAll($query . " " . $p_limit)) . " dari total $p_count data"
+		];
+	}
+
+	function log($id, $activity, $detail)
+	{
+		return $this->query("INSERT INTO log(log_user,log_activity,log_detail)
+          VALUES('$id', '$activity', '$detail')");
+	}
+
+	function accept($x = 'n')
+	{
+		if ($x == 'y') return "<i class=\"fa-solid fa-circle-check text-success\"></i>";
+		else return "<i class=\"fa-solid fa-circle-xmark text-danger\"></i>";
 	}
 }

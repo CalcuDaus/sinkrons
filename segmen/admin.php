@@ -1,3 +1,6 @@
+<?php
+require_once __DIR__ . "/session.php";
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -38,8 +41,8 @@
 				</li>
 				<div class="tab-dropdown">
 					<ul class="tab-item-wrapper mb-0">
-						<li><a href="?p=supervision-data">Data</a></li>
-						<li><a href="#">Pencarian</a></li>
+						<li><a href="?p=krk-data">Data</a></li>
+						<li><a href="?p=krk-search">Pencarian</a></li>
 					</ul>
 				</div>
 				<li class="tab tab-drop-btn mt-1 d-flex align-items-center">
@@ -164,6 +167,23 @@
 						require_once "semua/delete_supervision.php";
 						break;
 
+					case 'krk-add':
+						require_once "semua/form_add_krk.php";
+						break;
+
+					case 'krk-data':
+						require_once "semua/table_krks.php";
+						break;
+
+					case 'krk-search':
+						require_once "semua/form-search-krk.php";
+						break;
+
+					case 'krk-delete':
+						require_once "semua/delete_krk.php";
+						break;
+
+
 					case 'ref-bangunan':
 						require_once "semua/table_bangunan.php";
 						break;
@@ -203,14 +223,10 @@
 
 
 	<script src="../assets/js/bootstrap.bundle.min.js"></script>
-	<?php
-	if ($_GET['p'] == 'beranda' || !$_GET['p']) {
-	?>
-		<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-		<script src="../assets/js/chart.js"></script>
-	<?php
-	}
-	?>
+
+	<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+	<script src="../assets/js/chart.js"></script>
+
 	<script src="../assets/js/main.js"></script>
 </body>
 
