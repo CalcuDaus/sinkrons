@@ -16,9 +16,9 @@ class Cheat extends Databases
 		$next = $p_current < $p_halaman ? $p_current + 1 : 1;
 
 		$links = "
-		<nav class=\"pagination\" role=\"navigation\" aria-label=\"pagination\">
+		<nav class=\"pagination pagination-sm\" role=\"navigation\" aria-label=\"pagination\">
 		<li class=\"page-item\"><a href=\"?p=$p&set=$prev\" class=\"page-link\">Previous</a></li>
-		<ul class=\"pagination\">";
+		<ul class=\"pagination pagination-sm\">";
 
 		for ($i = 1; $i <= $p_halaman; $i++) {
 			$current = $p_current == $i ? "is-current" : "";

@@ -16,7 +16,7 @@
     <hr>
 
     <form action="" method="post">
-        <div class="container">
+        <div class="container card border-0 shadow rounded-4 p-3">
             <div class="row">
                 <div class="col-3">
                     <input type="date" class="form-control" placeholder="tanggal" name="tanggal">

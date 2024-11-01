@@ -1,7 +1,7 @@
 <!-- Breadcrumbs -->
-<div class="row">
+<div class="row ">
 	<div class="col-12 p-0">
-		<div class="breadcrumbs ">
+		<div class="breadcrumbs">
 			<ul class="breadcrumb-nav ps-3">
 				<li><a href="">Dashboard</a></li>
 				<li><a href="">Pengawasan</a></li>
@@ -14,6 +14,7 @@
 <div class="box">
 	<h3 class="title is-5">Tambah Data Pengawasan</h3>
 	<hr>
+
 	<?php
 	if (isset($_POST['tambah'])) {
 		$tanggal = isset($_POST['tanggal']) ? $_POST['tanggal'] : 0;
@@ -43,6 +44,7 @@
 				'$teguran', '$keterangan', '$tindakan',
 				'$hasil'
 			)")) {
+				$cheat->log($data['akun_id'], "add", "Menambahkan Data Pengawasan baru [id-" . $cmd->id() . "]");
 				$notif = "<p>Data telah ditambahkan!</p>";
 			} else $notif = "Data tidak dapat ditambahkan!";
 		}
@@ -50,47 +52,101 @@
 		echo $notif;
 	}
 	?>
-	<form action="" method="post" enctype="multipart/form-data">
-		<div class="container">
-			<div class="row">
-				<div class="col-6">
-					<label class="form-label">Tanggal:</label>
+	<div class="card border-0 shadow rounded-4 p-3">
+		<form action="" method="post" enctype="multipart/form-data">
+
+			<div class="row mt-2">
+				<div class="col-md-6">
+					<label>Tanggal:</label>
 					<input name="tanggal" type="date" class="form-control">
-					<label class="form-label">Nomor Surat:</label>
+				</div>
+				<div class="col-md-6">
+					<label>Nomor Surat:</label>
 					<input name="nosurat" type="text" class="form-control">
-					<label class="form-label">Jenis Bangunan:</label>
+				</div>
+			</div>
+
+			<div class="row mt-2">
+				<div class="col">
+					<label>Jenis Bangunan:</label>
 					<select name="jenis" class="form-select">
 						<?php foreach ($cmd->fetchAll("SELECT * FROM jenis WHERE jenis_kelompok='bangunan'") as $bangunan) : ?>
 							<option value="<?= $bangunan['jenis_id']; ?>"> <?= $bangunan['jenis_nama']; ?> </option>
 						<?php endforeach; ?>
 					</select>
-					<label class="form-label">Nama Pemilik:</label>
+				</div>
+			</div>
+
+			<div class="row mt-2">
+				<div class="col">
+					<label>Nama Pemilik:</label>
 					<input name="nama" type="text" class="form-control">
-					<label class="form-label">Alamat Bangunan:</label>
+				</div>
+			</div>
+
+			<div class="row mt-2">
+				<div class="col">
+					<label>Alamat Bangunan:</label>
 					<textarea name="alamat" class="form-control"></textarea>
-					<label class="form-label">Penilik:</label>
+				</div>
+			</div>
+
+			<div class="row mt-2">
+				<div class="col-md-6">
+					<label>Penilik:</label>
 					<textarea name="penilik" class="form-control"></textarea>
 				</div>
-				<div class="col-6">
-					<label class="form-label" for="perihal">Perihal:</label>
-					<textarea name="perihal" class="form-control" id="perihal"></textarea>
-					<label class="form-label" for="kecamatan">Kecamatan:</label>
+				<div class="col-md-6">
+					<label>Perihal:</label>
+					<textarea name="perihal" class="form-control"></textarea>
+				</div>
+			</div>
+
+			<div class="row mt-2">
+				<div class="col-md-6">
+					<label>Kecamatan:</label>
 					<input name="kecamatan" type="text" class="form-control">
-					<label class="form-label" for="desa">Kelurahan/Desa:</label>
-					<input name="desa" type="text" class="form-control" id="desa">
-					<label class="form-label">Teguran : </label>
+				</div>
+				<div class="col-md-6">
+					<label>Kelurahan/Desa:</label>
+					<input name="desa" type="text" class="form-control">
+				</div>
+			</div>
+
+
+
+			<div class="row mt-2">
+				<div class="col">
+					<label>Teguran Ke-:</label>
 					<select name="teguran" class="form-select">
 						<?php for ($u = 1; $u <= 3; $u++) : ?>
 							<option value="Teguran <?= $u; ?>"> Teguran <?= $u; ?> </option>
 						<?php endfor; ?>
 					</select>
-					<label class="form-label" for="keterangan">Keterangan:</label>
-					<textarea name="keterangan" class="form-control" id="keterangan"></textarea>
-					<label class="form-label" for="tindakan">Tindak Lanjut:</label>
-					<textarea name="tindakan" class="form-control" id="tindakan"></textarea>
-					<label class="form-label" for="hasil">Hasil Peninjauan:</label>
-					<textarea name="hasil" class="form-control" id="hasil"></textarea>
-					<button name="tambah" class="btn btn-primary mt-2">
+				</div>
+			</div>
+
+			<div class="row mt-2">
+				<div class="col">
+					<label>Keterangan:</label>
+					<textarea name="keterangan" class="form-control"></textarea>
+				</div>
+			</div>
+
+			<div class="row mt-2">
+				<div class="col-md-6">
+					<label>Tindak Lanjut:</label>
+					<textarea name="tindakan" class="form-control"></textarea>
+				</div>
+				<div class="col-md-6">
+					<label>Hasil Peninjauan:</label>
+					<textarea name="hasil" class="form-control"></textarea>
+				</div>
+			</div>
+
+			<div class="row mt-2">
+				<div class="col d-flex justify-content-end">
+					<button name="tambah" class="btn btn-primary">
 						<span class="icon-text">
 							<span class="icon">
 								<i class="fa-regular text-white fa-paper-plane"></i>
@@ -101,16 +157,9 @@
 				</div>
 			</div>
 
-
-		</div>
+		</form>
+	</div>
 </div>
-</div>
-
-
-
-</form>
-</div>
-
 <!-- Active Tab -->
 <?php
 if ($_GET['p'] == 'supervision-add') {
@@ -119,11 +168,14 @@ if ($_GET['p'] == 'supervision-add') {
 		document.querySelectorAll('.tab').forEach(tab => {
 			tab.classList.remove('t-active', 'd-side-active');
 		});
+
 		// Tentukan tab dan dropdown yang ingin diaktifkan
 		const activeTab = document.querySelectorAll('.tab')[3]; // Misal, tab ke-3
 		const activeDropdown = document.querySelectorAll('.tab-dropdown')[2]; // Misal, dropdown ke-2
+
 		// Tambahkan class aktif pada tab yang diinginkan
 		activeTab.classList.add('d-side-active', 't-active');
+
 		// Buat animasi transisi pada dropdown
 		activeDropdown.style.height = activeDropdown.scrollHeight + "px";
 		activeDropdown.addEventListener('transitionend', function handleTransitionEnd() {
