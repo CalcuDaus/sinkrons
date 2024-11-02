@@ -4,7 +4,7 @@
 			<ul class="breadcrumb-nav ps-3">
 				<li><a href="">Dashboard</a></li>
 				<li><a href="">Referensi</a></li>
-				<li class="text-primary">Data Status PBG</li>
+				<li class="text-primary">Data Jenis Permohonan</li>
 			</ul>
 		</div>
 	</div>
@@ -13,9 +13,9 @@
 <div class="box">
 	<div class="d-flex justify-content-between">
 		<h3 class="title is-5">
-			Data Status PBG
+			Data Jenis Permohonan
 		</h3>
-		<a href="?p=status-add" class="btn btn-primary">
+		<a href="?p=permohonan-add" class="btn btn-primary">
 			<span class="icon-text">
 				<span class="icon">
 					<i class="fa-solid fa-plus text-white"></i>
@@ -26,20 +26,21 @@
 	</div>
 	<hr>
 
+
 	<div class="container card border-0 shadow rounded-4 p-3">
 		<div class="table-responsive">
 			<table class="table table-striped">
 				<thead>
 					<tr>
 						<th>#</th>
-						<th>Status PBG</th>
+						<th>Jenis Permohonan</th>
 						<th>Aksi</th>
 					</tr>
 				</thead>
 
 				<tbody>
 					<?php
-					$pages = $cheat->pages("SELECT * FROM jenis WHERE jenis_kelompok='status'", "ref-status");
+					$pages = $cheat->pages("SELECT * FROM jenis WHERE jenis_kelompok='permohonan'", 'ref-permohonan');
 					foreach ($pages['data'] as $user):
 					?>
 						<tr>
@@ -50,13 +51,13 @@
 									<form action="" method="post" class="is-inline">
 										<input type="hidden" name="id" value="<?= $user['jenis_id']; ?>">
 										<button class="btn btn-sm btn-warning">
-											<i class="fa-solid text-white fa-pen-to-square"></i>
+											<i class="fa-solid fa-pen-to-square text-white"></i>
 										</button>
 									</form>
 									<form action="?p=jenis-delete" method="post" class="is-inline">
 										<input type="hidden" name="id" value="<?= $user['jenis_id']; ?>">
 										<button class="btn btn-sm btn-danger">
-											<i class="fa-solid text-white fa-trash"></i>
+											<i class="fa-solid fa-trash text-white"></i>
 										</button>
 									</form>
 								</div>
@@ -78,10 +79,11 @@
 		</div>
 	</div>
 
+
 </div>
 <!-- Active Tab -->
 <?php
-if ($_GET['p'] == 'ref-status') {
+if ($_GET['p'] == 'ref-permohonan') {
 ?>
 	<script>
 		document.querySelectorAll('.tab').forEach(tab => {

@@ -1,5 +1,17 @@
+<div class="row">
+	<div class="col-12 p-0">
+		<div class="breadcrumbs">
+			<ul class="breadcrumb-nav ps-3">
+				<li><a href="">Dashboard</a></li>
+				<li><a href="">Referensi</a></li>
+				<li class="text-primary">Tambah Status PBG</li>
+			</ul>
+		</div>
+	</div>
+</div>
+<!-- End Breadcrumbs -->
 <div class="box">
-	<h3 class="title is-5">Tambah Data Status</h3>
+	<h3 class="title is-5">Tambah Status PBG</h3>
 	<hr>
 
 	<?php
@@ -25,7 +37,7 @@
 					<div class="field">
 						<label>Status:</label>
 						<div class="control">
-							<input name="nama" type="text" class="form-control">
+							<input name="nama" type="text" class="form-control" placeholder="...">
 						</div>
 					</div>
 

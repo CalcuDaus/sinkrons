@@ -1,5 +1,17 @@
+<div class="row">
+	<div class="col-12 p-0">
+		<div class="breadcrumbs">
+			<ul class="breadcrumb-nav ps-3">
+				<li><a href="">Dashboard</a></li>
+				<li><a href="">Referensi</a></li>
+				<li class="text-primary">Tambah Fungsi Bangunan</li>
+			</ul>
+		</div>
+	</div>
+</div>
+<!-- End Breadcrumbs -->
 <div class="box">
-	<h3 class="title is-5">Tambah Jenis Bangunan</h3>
+	<h3 class="title is-5">Tambah Fungsi Bangunan</h3>
 	<hr>
 
 	<?php

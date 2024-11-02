@@ -4,25 +4,25 @@
 			<ul class="breadcrumb-nav ps-3">
 				<li><a href="">Dashboard</a></li>
 				<li><a href="">Referensi</a></li>
-				<li class="text-primary">Tambah Jenis Konsultasi</li>
+				<li class="text-primary">Tambah Jenis Permohonan</li>
 			</ul>
 		</div>
 	</div>
 </div>
 <!-- End Breadcrumbs -->
 <div class="box">
-	<h3 class="title is-5">Tambah Jenis Konsultasi</h3>
+	<h3 class="title is-5">Tambah Jenis Permohonan</h3>
 	<hr>
 
 	<?php
 	if (isset($_POST['tambah'])) {
 		$nama = isset($_POST['nama']) ? $_POST['nama'] : 0;
-
 		$notif = "Data Tidak sesuai!";
 
 		if (!empty($nama)) {
 			if ($cmd->query("INSERT INTO jenis VALUES (
-				NULL, '$nama', 'konsultasi')")) {
+				NULL, '$nama', 'permohonan')")) {
+				$cheat->log($data['akun_id'], "add", "Menambahkan Jenis Permohonan baru [id-" . $cmd->id() . "]");
 				$notif = "<p>Data telah ditambahkan!</p>";
 			} else $notif = "Data tidak dapat ditambahkan!";
 		}
@@ -30,47 +30,47 @@
 		echo $notif;
 	}
 	?>
-	<div class="container">
-		<div class="row">
-			<div class="col-6 ">
-				<form action="" method="post" class="d-flex flex-column gap-2" enctype="multipart/form-data">
-					<div class="field">
-						<label>Jenis Konsultasi:</label>
-						<div class="control">
-							<input name="nama" type="text" class="form-control">
-						</div>
-					</div>
+	<div class="row">
+		<div class="col-md-6">
+			<form action="" method="post" enctype="multipart/form-data">
 
-					<div class="field has-text-right">
-						<button name="tambah" class="btn btn-primary">
-							<span class="icon-text">
-								<span class="icon">
-									<i class="fa-regular fa-paper-plane text-white"></i>
-								</span>
-								<span class="text-white">Tambah</span>
+				<div class="field">
+					<label>Jenis Permohonan:</label>
+					<div class="control">
+						<input name="nama" type="text" class="form-control" placeholder="...">
+					</div>
+				</div>
+
+				<div class="mt-2">
+					<button name="tambah" class="btn btn-primary">
+						<span class="icon-text">
+							<span class="icon">
+								<i class="fa-regular fa-paper-plane text-white"></i>
 							</span>
-						</button>
-					</div>
-
-				</form>
-			</div>
+							<span class="text-white">Tambah</span>
+						</span>
+					</button>
+				</div>
+			</form>
 		</div>
 	</div>
 </div>
-
 <!-- Active Tab -->
 <?php
-if ($_GET['p'] == 'konsultasi-add') {
+if ($_GET['p'] == 'permohonan-add') {
 ?>
 	<script>
 		document.querySelectorAll('.tab').forEach(tab => {
 			tab.classList.remove('t-active', 'd-side-active');
 		});
-		// Tentukan tab active
-		const activeTab = document.querySelectorAll('.tab')[4];
-		const activeDropdown = document.querySelectorAll('.tab-dropdown')[3];
-		// Tambahkan class aktif pada tab 
+
+		// Tentukan tab dan dropdown yang ingin diaktifkan
+		const activeTab = document.querySelectorAll('.tab')[4]; // Misal, tab ke-3
+		const activeDropdown = document.querySelectorAll('.tab-dropdown')[3]; // Misal, dropdown ke-2
+
+		// Tambahkan class aktif pada tab yang diinginkan
 		activeTab.classList.add('d-side-active', 't-active');
+
 		// Buat animasi transisi pada dropdown
 		activeDropdown.style.height = activeDropdown.scrollHeight + "px";
 		activeDropdown.addEventListener('transitionend', function handleTransitionEnd() {
