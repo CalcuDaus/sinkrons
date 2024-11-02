@@ -1,59 +1,108 @@
+<div class="row">
+	<div class="col-12 p-0">
+		<div class="breadcrumbs">
+			<ul class="breadcrumb-nav ps-3">
+				<li><a href="">Dashboard</a></li>
+				<li><a href="">Referensi</a></li>
+				<li class="text-primary">Data Status KRK</li>
+			</ul>
+		</div>
+	</div>
+</div>
+<!-- End Breadcrumbs -->
 <div class="box">
 
-	<h3 class="title is-5">
-		Data Status KRK
-	</h3>
-	<hr>
-
-	<div class="buttons">
-		<a href="?p=ks-add" class="button is-primary">
+	<div class="d-flex justify-content-between">
+		<h3 class="title is-5">
+			Data Status KRK
+		</h3>
+		<a href="?p=ks-add" class="btn btn-primary">
 			<span class="icon-text">
 				<span class="icon">
-					<i class="fa-solid fa-plus"></i>
+					<i class="fa-solid fa-plus text-white"></i>
 				</span>
-				<span>Tambah</span>
+				<span class="text-white">Tambah</span>
 			</span>
 		</a>
 	</div>
+	<hr>
 
-	<table class="table is-fullwidth">
-		<thead>
-			<tr>
-				<th>#</th>
-				<th>Status KRK</th>
-				<th>Aksi</th>
-			</tr>
-		</thead>
+	<div class="container card border-0 shadow rounded-4 p-3">
+		<div class="table-responsive">
+			<table class="table table-striped">
+				<thead>
+					<tr>
+						<th>#</th>
+						<th>Status KRK</th>
+						<th>Aksi</th>
+					</tr>
+				</thead>
 
-		<tbody>
-		<?php
-		$pages = $cheat->pages("SELECT * FROM jenis WHERE jenis_kelompok='krk'","ref-krk");
-		foreach($pages['data'] as $user):
-		?>
-			<tr>
-				<td><?= $pages['no']++; ?></td>
-				<td><?= $user['jenis_nama']; ?></td>
-				<td>
-					<form action="" method="post" class="is-inline">
-						<input type="hidden" name="id" value="<?= $user['jenis_id']; ?>">
-						<button class="button is-small is-warning">
-							<i class="fa-solid fa-pen-to-square"></i>
-						</button>
-					</form>
-					<form action="?p=jenis-delete" method="post" class="is-inline">
-						<input type="hidden" name="id" value="<?= $user['jenis_id']; ?>">
-						<button class="button is-small is-danger">
-							<i class="fa-solid fa-trash"></i>
-						</button>
-					</form>
-				</td>
-			</tr>
-			<?php endforeach;
-			if($pages['count'] == 0) echo "<tr><td colspan=\"3\">Tidak ada data</td></tr>";
-			?>
-		</tbody>
-	</table>
-
-	<?= $pages['links']; ?>
-	<p class="is-size-7"><?= $pages['detail']; ?></p>
+				<tbody>
+					<?php
+					$pages = $cheat->pages("SELECT * FROM jenis WHERE jenis_kelompok='krk'", "ref-krk");
+					foreach ($pages['data'] as $user):
+					?>
+						<tr>
+							<td><?= $pages['no']++; ?></td>
+							<td><?= $user['jenis_nama']; ?></td>
+							<td>
+								<div class="d-flex gap-2">
+									<form action="" method="post" class="is-inline">
+										<input type="hidden" name="id" value="<?= $user['jenis_id']; ?>">
+										<button class="btn btn-sm btn-warning">
+											<i class="fa-solid text-white fa-pen-to-square"></i>
+										</button>
+									</form>
+									<form action="?p=jenis-delete" method="post" class="is-inline">
+										<input type="hidden" name="id" value="<?= $user['jenis_id']; ?>">
+										<button class="btn btn-sm btn-danger">
+											<i class="fa-solid text-white fa-trash"></i>
+										</button>
+									</form>
+								</div>
+							</td>
+						</tr>
+					<?php endforeach;
+					if ($pages['count'] == 0) echo "<tr><td colspan=\"3\">Tidak ada data</td></tr>";
+					?>
+				</tbody>
+			</table>
+		</div>
+		<div class="container">
+			<div class="row">
+				<div class="col d-flex justify-content-end flex-column align-items-end mt-2">
+					<?= $pages['links']; ?>
+					<p><?= $pages['detail']; ?></p>
+				</div>
+			</div>
+		</div>
+	</div>
 </div>
+
+<!-- Active Tab -->
+<?php
+if ($_GET['p'] == 'ref-krk') {
+?>
+	<script>
+		document.querySelectorAll('.tab').forEach(tab => {
+			tab.classList.remove('t-active', 'd-side-active');
+		});
+
+		// Tentukan tab dan dropdown yang ingin diaktifkan
+		const activeTab = document.querySelectorAll('.tab')[4]; // Misal, tab ke-3
+		const activeDropdown = document.querySelectorAll('.tab-dropdown')[3]; // Misal, dropdown ke-2
+
+		// Tambahkan class aktif pada tab yang diinginkan
+		activeTab.classList.add('d-side-active', 't-active');
+
+		// Buat animasi transisi pada dropdown
+		activeDropdown.style.height = activeDropdown.scrollHeight + "px";
+		activeDropdown.addEventListener('transitionend', function handleTransitionEnd() {
+			activeDropdown.style.height = 'auto';
+			activeDropdown.removeEventListener('transitionend', handleTransitionEnd);
+		});
+	</script>
+<?php
+}
+?>
