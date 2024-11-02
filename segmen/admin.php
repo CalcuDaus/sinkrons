@@ -250,8 +250,8 @@ require_once __DIR__ . "/session.php";
 	</main>
 
 	<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-	<script src="../assets/js/chart1.js"></script>
-	<script src="../assets/js/main1.js"></script>
+	<script src="../assets/js/chart1.js?t=<?= rand(); ?>"></script>
+	<script src="../assets/js/main1.js?t=<?= rand(); ?>"></script>
 	<script src="../assets/js/bootstrap.bundle.min.js"></script>
 
 </body>

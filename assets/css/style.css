@@ -16,6 +16,9 @@
 body {
   background-color: var(--background-color);
 }
+h3 {
+  color: var(--font-color) !important;
+}
 #sidebar {
   width: 264px;
   height: 100vh;
