@@ -191,3 +191,41 @@ header i:hover {
 .breadcrumb-nav a:hover {
   text-decoration: underline;
 }
+
+/* Loader */
+
+.loader {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: white;
+  display: flex;
+  z-index: 99;
+  justify-content: center;
+  align-items: center;
+  transition: all 0.75s ease;
+}
+.hide {
+  opacity: 0;
+  visibility: hidden;
+}
+.loader::after {
+  content: "";
+  width: 75px;
+  height: 75px;
+  border: 15px solid #b5c6e9;
+  border-top-color: var(--primary-color);
+  border-radius: 50%;
+  animation: loading 0.75s infinite;
+}
+
+@keyframes loading {
+  from {
+    rotate: 0deg;
+  }
+  to {
+    rotate: 360deg;
+  }
+}

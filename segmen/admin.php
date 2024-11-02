@@ -22,6 +22,7 @@ require_once __DIR__ . "/session.php";
 </head>
 
 <body>
+	<div class="loader"></div>
 
 	<aside id="sidebar">
 		<div class="wrapper shadow overflow-y-auto">
@@ -99,6 +100,10 @@ require_once __DIR__ . "/session.php";
 						<li><a href="#">Pencarian</a></li>
 					</ul>
 				</div>
+				<li class="tab mt-1 d-flex align-items-center">
+					<i class="fa-solid fa-arrow-left me-3 icons"></i>
+					<a href="logout.php" class="m-0">Logout</a>
+				</li>
 			</div>
 		</div>
 	</aside>
@@ -112,7 +117,7 @@ require_once __DIR__ . "/session.php";
 			</div>
 			<div class="tab-profile">
 				<li><a href="">Setting</a></li>
-				<li><a href="">Logout</a></li>
+				<li><a href="logout.php">Logout</a></li>
 				<li><a href="">Info</a></li>
 			</div>
 		</header>
@@ -244,13 +249,19 @@ require_once __DIR__ . "/session.php";
 		</section>
 	</main>
 
+	<script>
+		const Loader = document.querySelector(".loader");
 
+		window.addEventListener("load", function() {
+			Loader.classList.add("hide");
+		});
+	</script>
+	<script src="../assets/js/main.js"></script>
 	<script src="../assets/js/bootstrap.bundle.min.js"></script>
+
 
 	<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 	<script src="../assets/js/chart.js"></script>
-
-	<script src="../assets/js/main.js"></script>
 </body>
 
 </html>
