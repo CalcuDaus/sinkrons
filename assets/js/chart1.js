@@ -1,4 +1,5 @@
 const runChartPBG = () => {
+  delete pbgData[Object.keys(pbgData)[0]];
   const labelsPBG = Object.keys(pbgData);
   const valuesPBG = Object.values(pbgData);
 
@@ -29,6 +30,7 @@ const runChartPBG = () => {
 };
 
 const runChartKRK = () => {
+  delete krkData[Object.keys(krkData)[0]];
   const labelsKRK = Object.keys(krkData);
   const valuesKRK = Object.values(krkData);
 
@@ -58,6 +60,7 @@ const runChartKRK = () => {
   });
 };
 const runChartSupervision = () => {
+  delete supervisionData[Object.keys(supervisionData)[0]];
   const labelsSupervision = Object.keys(supervisionData);
   const valuesSupervision = Object.values(supervisionData);
 
@@ -87,6 +90,7 @@ const runChartSupervision = () => {
   });
 };
 const runChartUser = () => {
+  delete userData[Object.keys(userData)[0]];
   const labelsUser = Object.keys(userData);
   const valuesUser = Object.values(userData);
 
