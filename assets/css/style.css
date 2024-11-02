@@ -132,14 +132,19 @@ header i:hover {
   z-index: 1;
   height: 0;
   overflow: hidden;
+  padding: 10px 25px;
   border-radius: 20px;
+  visibility: hidden;
   transition: all 0.5s ease;
   background-color: white;
-  padding: 0;
+  /* padding: 0; */
+  opacity: 0;
 }
 .tab-profile.profile-active {
   height: 100px;
-  padding: 10px 25px;
+  opacity: 1;
+  visibility: unset;
+  /* padding: 10px 25px; */
 }
 .tab-profile li:hover a {
   color: #0049e8;
