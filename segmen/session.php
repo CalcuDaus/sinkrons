@@ -25,5 +25,5 @@ if (!empty($email)) {
         }
     }
 } else {
-    header("Location: /publik-sinkron");
+    header("Location: /sinkron");
 }

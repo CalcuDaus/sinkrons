@@ -77,9 +77,11 @@ require_once __DIR__ . "/session.php";
 				</li>
 				<div class="tab-dropdown">
 					<ul class="tab-item-wrapper mb-0">
-						<li><a href="?p=ref-bangunan">Bangunan</a></li>
-						<li><a href="?p=ref-konsultasi">Konsultasi</a></li>
-						<li><a href="?p=ref-status">Status</a></li>
+						<li><a href="?p=ref-bangunan">Fungsi Bangunan</a></li>
+						<li><a href="?p=ref-konsultasi">Jenis Konsultasi</a></li>
+						<li><a href="?p=ref-permohonan">Jenis Permohonan</a></li>
+						<li><a href="?p=ref-status">Status PBG</a></li>
+						<li><a href="?p=ref-krk">Status KRK</a></li>
 					</ul>
 				</div>
 				<li class="tab mt-1 d-flex align-items-center">
@@ -209,8 +211,28 @@ require_once __DIR__ . "/session.php";
 						require_once "semua/form_add_status.php";
 						break;
 
+					case 'ref-permohonan':
+						require_once "semua/table_permohonan.php";
+						break;
+
+					case 'permohonan-add':
+						require_once "semua/form_add_permohonan.php";
+						break;
+
+					case 'ref-krk':
+						require_once "semua/table_ks.php";
+						break;
+
+					case 'ks-add':
+						require_once "semua/form_add_ks.php";
+						break;
+
 					case 'jenis-delete':
 						require_once "semua/delete_jenis.php";
+						break;
+
+					case 'logout':
+						require_once "logout.php";
 						break;
 
 					default:

@@ -58,6 +58,10 @@ body {
   border-radius: 5px;
 }
 
+.tab-item-wrapper > li > a {
+  font-size: 14px;
+}
+
 .table-responsive::-webkit-scrollbar {
   height: 5px !important;
 }
