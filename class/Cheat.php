@@ -50,4 +50,80 @@ class Cheat extends Databases
 		if ($x == 'y') return "<i class=\"fa-solid fa-circle-check text-success\"></i>";
 		else return "<i class=\"fa-solid fa-circle-xmark text-danger\"></i>";
 	}
+	function akun()
+	{
+		$akun = [
+			'all' => 0,
+			'admin' => 0,
+			'viewer' => 0,
+			'operator' => 0
+		];
+
+		foreach ($this->fetchAll("SELECT akun_level AS level, COUNT(akun_id) AS jumlah FROM akun GROUP BY akun_level") as $ac) {
+			$akun[$ac['level']] = $ac['jumlah'];
+			$akun['all'] += $ac['jumlah'];
+		}
+
+		return $akun;
+	}
+
+	function awas()
+	{
+		$awas = [
+			'all' => 0,
+			'Teguran 1' => 0,
+			'Teguran 2' => 0,
+			'Teguran 3' => 0
+		];
+		foreach ($this->fetchAll("SELECT awas_teguran AS level, COUNT(awas_id) AS jumlah FROM pengawasan GROUP BY awas_teguran") as $ac) {
+			$awas[$ac['level']] = $ac['jumlah'];
+			$awas['all'] += $ac['jumlah'];
+		}
+
+		return $awas;
+	}
+
+	function pbg()
+	{
+		$pbg = ['all' => 0];
+
+		foreach ($this->fetchAll("SELECT jenis_nama as nama FROM jenis WHERE jenis_kelompok='status'") as $dev) {
+			$pbg[$dev['nama']] = 0;
+		}
+
+		foreach (
+			$this->fetchAll("SELECT jenis_nama as level,
+				COUNT(pbg_id) AS jumlah
+				FROM pbg JOIN jenis ON pbg_status=jenis_id
+				WHERE jenis_kelompok='status'
+				GROUP BY pbg_status") as $ac
+		) {
+			$pbg[$ac['level']] = $ac['jumlah'];
+			$pbg['all'] += $ac['jumlah'];
+		}
+
+		return $pbg;
+	}
+
+	function krk()
+	{
+		$krk = ['all' => 0];
+
+		foreach ($this->fetchAll("SELECT jenis_nama as nama FROM jenis WHERE jenis_kelompok='krk'") as $dev) {
+			$krk[$dev['nama']] = 0;
+		}
+
+		foreach (
+			$this->fetchAll("SELECT jenis_nama as level,
+				COUNT(krk_id) AS jumlah
+				FROM krk JOIN jenis ON krk_status=jenis_id
+				WHERE jenis_kelompok='krk'
+				GROUP BY krk_status") as $ac
+		) {
+			$krk[$ac['level']] = $ac['jumlah'];
+			$krk['all'] += $ac['jumlah'];
+		}
+
+		return $krk;
+	}
 }

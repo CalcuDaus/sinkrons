@@ -50,3 +50,11 @@
   </div>
 </div>
 <!-- End Chart Section -->
+
+<script>
+  <?php
+  $pbg = $cheat->pbg();
+  $pbgChartData = json_encode($pbg)
+  ?>
+  const pbgData = <?= $pbgChartData; ?>
+</script>

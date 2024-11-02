@@ -249,19 +249,11 @@ require_once __DIR__ . "/session.php";
 		</section>
 	</main>
 
-	<script>
-		const Loader = document.querySelector(".loader");
-
-		window.addEventListener("load", function() {
-			Loader.classList.add("hide");
-		});
-	</script>
-	<script src="../assets/js/main.js"></script>
+	<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+	<script src="../assets/js/chart1.js"></script>
+	<script src="../assets/js/main1.js"></script>
 	<script src="../assets/js/bootstrap.bundle.min.js"></script>
 
-
-	<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-	<script src="../assets/js/chart.js"></script>
 </body>
 
 </html>

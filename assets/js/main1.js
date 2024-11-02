@@ -5,6 +5,11 @@ const ProfileBtn = document.querySelector(".profile");
 const TabProfile = document.querySelector(".tab-profile");
 const DropdownSidebarBtns = document.querySelectorAll(".tab-drop-btn");
 const DropdownSidebarELements = document.querySelectorAll(".tab-dropdown");
+const Loader = document.querySelector(".loader");
+
+window.addEventListener("load", function () {
+  Loader.classList.add("hide");
+});
 
 ToggleBtn.addEventListener("click", function () {
   SideBar.classList.toggle("s-active");

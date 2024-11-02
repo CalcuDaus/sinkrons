@@ -134,12 +134,12 @@
 
 			<div class="row mt-2">
 				<div class="col d-flex justify-content-end">
-					<button name="tambah" class="button is-primary">
+					<button name="tambah" class="btn btn-primary">
 						<span class="icon-text">
 							<span class="icon">
-								<i class="fa-regular fa-paper-plane"></i>
+								<i class="fa-regular text-white fa-paper-plane"></i>
 							</span>
-							<span>Tambah</span>
+							<span class="text-white">Tambah</span>
 						</span>
 					</button>
 				</div>
