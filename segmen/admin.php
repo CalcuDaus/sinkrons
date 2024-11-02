@@ -108,12 +108,25 @@ require_once __DIR__ . "/session.php";
 		</div>
 	</aside>
 	<main id="main">
-		<header class="d-flex justify-content-between position-sticky top-0 z-2">
-			<div class="toggle-btn">
-				<i class="fa-solid fa-bars"></i>
+		<header style="transform: translateY(15px);" class="d-flex justify-content-between flex-row position-sticky top-0 z-2 card border-0 shadow rounded-4 p-2">
+			<div class="d-flex align-items-center justify-content-center ">
+				<div class="toggle-btn">
+					<i class="fa-solid fa-bars"></i>
+				</div>
+				<div>
+					<img src="../assets/img/logo.png" width="30px" alt="" style="transform: translateY(2px);">
+				</div>
+				<div class="header-title">
+					<h5 class="m-0">SINKRON</h5>
+				</div>
 			</div>
-			<div class="profile">
-				<img src="../assets/img/image-01.jpg" alt="" width="35px" />
+			<div class="d-flex align-items-center justify-content-center gap-2">
+				<div class="notification">
+					<i class="fa-solid fa-bell " style="font-size: 22px;"></i>
+				</div>
+				<div class="profile">
+					<img src="../assets/img/image-01.jpg" alt="" width="35px" />
+				</div>
 			</div>
 			<div class="tab-profile">
 				<li><a href="">Setting</a></li>
@@ -121,8 +134,7 @@ require_once __DIR__ . "/session.php";
 				<li><a href="">Info</a></li>
 			</div>
 		</header>
-		<section class="content">
-
+		<section style="margin-top: 3.5rem;" class="content">
 			<div class="container ps-4 pb-5">
 				<?php
 				require_once __DIR__ . '/../class/Databases.php';
