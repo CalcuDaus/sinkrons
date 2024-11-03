@@ -258,6 +258,9 @@ require_once __DIR__ . "/session.php";
 				}
 				?>
 			</div>
+			<footer>
+				<p>Dibuat Dengan Sepenuh Hati oleh <a href="https://www.sahabatmhc.com/" class="text-decoration-none">M.Hc Family</a> &copy;2024 - Sekarang</p>
+			</footer>
 		</section>
 	</main>
 
