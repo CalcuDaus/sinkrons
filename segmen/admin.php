@@ -37,7 +37,7 @@ require_once __DIR__ . "/session.php";
 				</li>
 				<li class="tab tab-drop-btn mt-1 d-flex align-items-center">
 					<i class="fa-solid fa-person-dress me-3 icons"></i>
-					<a href="#" class="m-0">KRK</a>
+					<a href="javascript:void(0);" class="m-0">KRK</a>
 					<i class="fa-solid fa-caret-down ms-auto"></i>
 				</li>
 				<div class="tab-dropdown">
@@ -49,7 +49,7 @@ require_once __DIR__ . "/session.php";
 				</div>
 				<li class="tab tab-drop-btn mt-1 d-flex align-items-center">
 					<i class="fa-solid fa-users me-3 icons"></i>
-					<a href="#" class="m-0">PBG</a>
+					<a href="javascript:void(0);" class="m-0">PBG</a>
 					<i class="fa-solid fa-caret-down ms-auto"></i>
 				</li>
 				<div class="tab-dropdown">
@@ -61,7 +61,7 @@ require_once __DIR__ . "/session.php";
 				</div>
 				<li class="tab tab-drop-btn mt-1 d-flex align-items-center">
 					<i class="fa-solid fa-eye me-3 icons"></i>
-					<a href="#" class="m-0">Pengawasan</a>
+					<a href="javascript:void(0);" class="m-0">Pengawasan</a>
 					<i class="fa-solid fa-caret-down ms-auto"></i>
 				</li>
 				<div class="tab-dropdown">
@@ -73,7 +73,7 @@ require_once __DIR__ . "/session.php";
 				</div>
 				<li class="tab tab-drop-btn mt-1 d-flex align-items-center">
 					<i class="fa-solid fa-language me-3 icons"></i>
-					<a href="#" class="m-0">Referensi</a>
+					<a href="javascript:void(0);" class="m-0">Referensi</a>
 					<i class="fa-solid fa-caret-down ms-auto"></i>
 				</li>
 				<div class="tab-dropdown">
@@ -91,7 +91,7 @@ require_once __DIR__ . "/session.php";
 				</li>
 				<li class="tab tab-drop-btn mt-1 d-flex align-items-center">
 					<i class="fa-solid fa-file me-3 icons"></i>
-					<a href="#" class="m-0">Laporan</a>
+					<a href="javascript:void(0);" class="m-0">Laporan</a>
 					<i class="fa-solid fa-caret-down ms-auto"></i>
 				</li>
 				<div class="tab-dropdown">
