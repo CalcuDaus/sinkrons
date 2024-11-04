@@ -10,7 +10,6 @@ if (!empty($email)) {
         $data = $cmd->fetch("SELECT * FROM akun WHERE akun_email='$email'");
         if (password_verify($password, $data['akun_password'])) {
             $segmen = 0;
-
             if ($data['akun_level'] == 'admin' && $data['akun_segmen'] == 'semua') {
                 $segmen = 'admin.php';
             } else if ($data['akun_level'] == 'viewer' && $data['akun_segmen'] == 'semua') {

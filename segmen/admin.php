@@ -1,5 +1,9 @@
 <?php
 require_once __DIR__ . "/session.php";
+if ($_SERVER['REQUEST_URI'] == '/sinkron/segmen/index.php') {
+	header('Location: /sinkron/segmen/index.php?p=beranda');
+}
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
